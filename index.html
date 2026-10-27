@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ITM 12022 - Business Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a href="#dashboard" class="logo">
+            <span class="logo-icon">L</span>
+            Lanka Fresh Mart
+        </a>
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="navbar" id="navbar">
+            <a href="#dashboard" class="nav-link active">Dashboard</a>
+            <a href="#sales" class="nav-link">Sales</a>
+            <a href="#reports" class="nav-link">Reports</a>
+            <a href="#settings" class="nav-link">Settings</a>
+        </nav>
+
+        <div class="user-info">
+            <span class="user-avatar">A</span>
+            <span>Admin</span>
+        </div>
+    </header>
+
+    <main class="dashboard" id="dashboard">
+
+        <section class="welcome-section">
+            <div>
+                <p class="eyebrow">Sale Dashboard</p>
+                <h1>Dashboard</h1>
+                <p class="subtitle">
+                    January to June.
+                </p>
+            </div>
+
+            <div class="date-box">
+                <span>Reporting Period</span>
+                <strong>January – June</strong>
+            </div>
+        </section>
+
+        <section class="kpi-grid" aria-label="Business summary">
+
+            <article class="kpi-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Total Revenue</span>
+                    <span class="kpi-icon purple">Rs.</span>
+                </div>
+                <h2 id="totalRevenue">Loading...</h2>
+                <p class="kpi-note">January – June revenue</p>
+            </article>
+
+            <article class="kpi-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Total Units Sold</span>
+                    <span class="kpi-icon blue">▦</span>
+                </div>
+                <h2 id="totalUnits">Loading...</h2>
+                <p class="kpi-note">Units sold in six months</p>
+            </article>
+
+            <article class="kpi-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Best Month</span>
+                    <span class="kpi-icon orange">↗</span>
+                </div>
+                <h2 id="bestMonth">Loading...</h2>
+                <p class="kpi-note" id="bestMonthNote">Highest monthly revenue</p>
+            </article>
+
+            <article class="kpi-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Best Branch</span>
+                    <span class="kpi-icon green">⌖</span>
+                </div>
+                <h2 id="bestBranch">Loading...</h2>
+                <p class="kpi-note" id="bestBranchNote">Highest Q2 revenue</p>
+            </article>
+
+        </section>
+
+        <section class="charts-grid" id="sales">
+
+            <article class="chart-card">
+                <div class="chart-heading">
+                    <div>
+                        <h2>Monthly Revenue</h2>
+                        <p>Revenue from January to June</p>
+                    </div>
+                    <span class="chart-badge">6 Months</span>
+                </div>
+
+                <div class="chart-area">
+                    <canvas id="revenueChart"
+                            role="img"
+                            aria-label="Line chart showing monthly revenue from January to June">
+                    </canvas>
+                </div>
+            </article>
+
+            <article class="chart-card" id="reports">
+                <div class="chart-heading">
+                    <div>
+                        <h2>Revenue by Branch</h2>
+                        <p>Quarter 2 branch comparison</p>
+                    </div>
+                    <span class="chart-badge">Q2</span>
+                </div>
+
+                <div class="chart-area">
+                    <canvas id="branchChart"
+                            role="img"
+                            aria-label="Column chart comparing Q2 revenue of Colombo, Kandy and Galle">
+                    </canvas>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="table-card">
+            <div class="table-heading">
+                <div>
+                    <h2>Monthly Sales Details</h2>
+                    <p>Revenue and units sold by month</p>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Revenue (LKR '000)</th>
+                            <th>Units Sold</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salesTableBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="branch-section" id="settings">
+            <h2>Branch Performance</h2>
+            <p class="subtitle">
+                Q2 revenue across all three branches.
+            </p>
+            <div class="branch-list" id="branchList">
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>ITM 12022 - Business Applications</p>
+            <p>Lanka Fresh Mart | Responsive Dashboard</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
